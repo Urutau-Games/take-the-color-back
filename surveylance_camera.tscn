@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dojlb3o4eeupd"]
+
+[ext_resource type="Script" uid="uid://bpnepn6mqvert" path="res://surveylance_camera.gd" id="1_vca8k"]
+
+[node name="SurveylanceCamera" type="Node2D" unique_id=1661178715]
+script = ExtResource("1_vca8k")
+
+[node name="Pivot" type="Node2D" parent="." unique_id=1506908010]
+
+[node name="Area2D" type="Area2D" parent="Pivot" unique_id=837154566]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pivot/Area2D" unique_id=267131834]
+polygon = PackedVector2Array(0, 0, -75, 130, 75, 130)
+
+[node name="Raycast" type="RayCast2D" parent="." unique_id=1891147839]
+collision_mask = 3
+
+[connection signal="body_entered" from="Pivot/Area2D" to="." method="_on_area_2d_body_entered"]

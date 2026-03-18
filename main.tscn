@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://der23pkgpluvc"]
+
+[ext_resource type="PackedScene" uid="uid://bh7t8eg8b8tfb" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dojlb3o4eeupd" path="res://surveylance_camera.tscn" id="2_0xm2m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(100, 5)
+
+[node name="Main" type="Node2D" unique_id=1932595481]
+
+[node name="Player" parent="." unique_id=1614203785 instance=ExtResource("1_ig7tw")]
+position = Vector2(80, 274)
+
+[node name="SurveylanceCamera" parent="." unique_id=1661178715 instance=ExtResource("2_0xm2m")]
+position = Vector2(358, 176)
+
+[node name="SurveylanceCamera2" parent="." unique_id=320202832 instance=ExtResource("2_0xm2m")]
+position = Vector2(664, 176)
+
+[node name="Hideout" type="Node2D" parent="." unique_id=1833603186]
+position = Vector2(664, 250)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Hideout" unique_id=33652295]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hideout/StaticBody2D" unique_id=1998566113]
+shape = SubResource("RectangleShape2D_0xm2m")
+debug_color = Color(0.32665408, 0.5644826, 0.23946884, 0.41960785)
