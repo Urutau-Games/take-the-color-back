@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://d3l8qst4sy2mc"]
+
+[ext_resource type="Script" uid="uid://b7ckk427cu5wy" path="res://guard.gd" id="1_opr0s"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h2yge"]
+radius = 53.0
+height = 215.0
+
+[node name="Guard" type="CharacterBody2D" unique_id=859823445]
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_opr0s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=939817582]
+shape = SubResource("CapsuleShape2D_h2yge")
+debug_color = Color(0.3529412, 0.3529412, 0.3529412, 0.8784314)
+
+[node name="Pivot" type="Node2D" parent="." unique_id=261937932]
+position = Vector2(0, -75)
+
+[node name="Area2D" type="Area2D" parent="Pivot" unique_id=642400652]
+rotation = -1.5707964
+collision_layer = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pivot/Area2D" unique_id=1217048054]
+polygon = PackedVector2Array(0, 0, -120, 380, 120, 380)
+
+[node name="RayCast" type="RayCast2D" parent="Pivot/Area2D" unique_id=1077751407]
+
+[connection signal="body_entered" from="Pivot/Area2D" to="." method="_on_area_2d_body_entered"]

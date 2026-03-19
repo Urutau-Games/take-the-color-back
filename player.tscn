@@ -3,20 +3,20 @@
 [ext_resource type="Script" uid="uid://bde8n5m8cxltl" path="res://player.gd" id="1_4flbx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7dm0k"]
-radius = 16.0
-height = 64.0
+radius = 53.0
+height = 215.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ig7tw"]
-radius = 16.0
-height = 40.0
+radius = 53.0
+height = 111.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1614203785]
-collision_mask = 2
+collision_mask = 4
 script = ExtResource("1_4flbx")
 
 [node name="StandupCollision" type="CollisionShape2D" parent="." unique_id=2088818772]
 shape = SubResource("CapsuleShape2D_7dm0k")
 
 [node name="CrouchCollision" type="CollisionShape2D" parent="." unique_id=1368884867]
-position = Vector2(0, 12)
+position = Vector2(0, 52)
 shape = SubResource("CapsuleShape2D_ig7tw")

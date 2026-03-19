@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dq6hljsvj3fcd"]
+
+[ext_resource type="Script" uid="uid://fyp4pe0m3swx" path="res://elevator.gd" id="1_uuuf0"]
+[ext_resource type="PackedScene" uid="uid://cxnn6p66yn6j1" path="res://wall.tscn" id="2_pc862"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2yopf"]
+size = Vector2(250, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1gjg"]
+size = Vector2(135, 400)
+
+[node name="Elevator" type="AnimatableBody2D" unique_id=68066074]
+collision_layer = 4
+script = ExtResource("1_uuuf0")
+
+[node name="Floor" type="CollisionShape2D" parent="." unique_id=1902977701]
+shape = SubResource("RectangleShape2D_2yopf")
+debug_color = Color(0.86436534, 0.11779002, 0.8173685, 0.41960785)
+
+[node name="SafeZone" type="Area2D" parent="." unique_id=2096601246]
+position = Vector2(57, -215)
+collision_layer = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SafeZone" unique_id=153786983]
+shape = SubResource("RectangleShape2D_f1gjg")
+debug_color = Color(1, 0.5568628, 0.2509804, 0.41960785)
+
+[node name="Door" parent="." unique_id=596872435 instance=ExtResource("2_pc862")]
+position = Vector2(-150, -216)
+
+[connection signal="body_entered" from="SafeZone" to="." method="_on_safe_zone_body_entered"]
+[connection signal="body_exited" from="SafeZone" to="." method="_on_safe_zone_body_exited"]
