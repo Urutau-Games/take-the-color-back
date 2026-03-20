@@ -3,17 +3,45 @@
 [ext_resource type="PackedScene" uid="uid://dmt4tj7a7pyyf" path="res://building.tscn" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bh7t8eg8b8tfb" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://dojlb3o4eeupd" path="res://surveylance_camera.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://ofxpyitacp7q" path="res://door.tscn" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://d3l8qst4sy2mc" path="res://guard.tscn" id="4_1bvp3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
 size = Vector2(100, 5)
 
 [node name="Main" type="Node2D" unique_id=1932595481]
+metadata/_edit_vertical_guides_ = [50.0, 101.0]
+metadata/_edit_horizontal_guides_ = [4865.0, 4435.0, 4835.0, 5265.0]
 
 [node name="Building" parent="." unique_id=614417209 instance=ExtResource("1_h2yge")]
 
+[node name="FirstFloor" type="Node2D" parent="Building" unique_id=959687378]
+position = Vector2(101, 4866)
+
+[node name="SurveylanceCamera" parent="Building/FirstFloor" unique_id=1661178715 instance=ExtResource("2_0xm2m")]
+position = Vector2(559, 0)
+max_rotation_angle = 72.0
+min_rotation_angle = -72.0
+
+[node name="SurveylanceCamera2" parent="Building/FirstFloor" unique_id=387547730 instance=ExtResource("2_0xm2m")]
+position = Vector2(1064, 0)
+max_rotation_angle = 72.0
+min_rotation_angle = -72.0
+
+[node name="Door" parent="Building/FirstFloor" unique_id=993681249 instance=ExtResource("3_lquwl")]
+position = Vector2(629, 250)
+
+[node name="Door2" parent="Building/FirstFloor" unique_id=1032671449 instance=ExtResource("3_lquwl")]
+position = Vector2(1064, 250)
+
+[node name="SecondFloor" type="Node2D" parent="Building" unique_id=618814105]
+position = Vector2(101, 4435)
+
+[node name="Guard" parent="Building/SecondFloor" unique_id=859823445 instance=ExtResource("4_1bvp3")]
+position = Vector2(77, 292)
+
 [node name="Player" parent="." unique_id=1614203785 instance=ExtResource("1_ig7tw")]
-position = Vector2(206, 5157)
+position = Vector2(178, 5157)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1223581322]
 position = Vector2(754, -298)
@@ -22,9 +50,6 @@ limit_top = 0
 limit_right = 1920
 limit_bottom = 5400
 
-[node name="SurveylanceCamera" parent="." unique_id=1661178715 instance=ExtResource("2_0xm2m")]
-position = Vector2(585, 135)
-
 [node name="SurveylanceCamera2" parent="." unique_id=320202832 instance=ExtResource("2_0xm2m")]
 position = Vector2(1250, 135)
 
@@ -32,16 +57,10 @@ position = Vector2(1250, 135)
 position = Vector2(664, 250)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Hideout" unique_id=33652295]
+position = Vector2(36, -488)
 collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hideout/StaticBody2D" unique_id=1998566113]
 shape = SubResource("RectangleShape2D_0xm2m")
 debug_color = Color(0.32665408, 0.5644826, 0.23946884, 0.41960785)
-
-[node name="Guard" parent="." unique_id=859823445 instance=ExtResource("4_1bvp3")]
-position = Vector2(178, 4726)
-
-[node name="Guard2" parent="." unique_id=621701469 instance=ExtResource("4_1bvp3")]
-position = Vector2(982, 5098)
-scale = Vector2(-1, 1)

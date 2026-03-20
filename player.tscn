@@ -10,6 +10,8 @@ height = 215.0
 radius = 53.0
 height = 111.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4flbx"]
+
 [node name="Player" type="CharacterBody2D" unique_id=1614203785]
 collision_mask = 4
 script = ExtResource("1_4flbx")
@@ -20,3 +22,14 @@ shape = SubResource("CapsuleShape2D_7dm0k")
 [node name="CrouchCollision" type="CollisionShape2D" parent="." unique_id=1368884867]
 position = Vector2(0, 52)
 shape = SubResource("CapsuleShape2D_ig7tw")
+
+[node name="RoomDoorDetector" type="Area2D" parent="." unique_id=2063531458]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomDoorDetector" unique_id=1807770397]
+shape = SubResource("RectangleShape2D_4flbx")
+debug_color = Color(6.768387e-08, 0.07309396, 0.09303375, 0.41960785)
+
+[connection signal="area_entered" from="RoomDoorDetector" to="." method="_on_room_door_detector_area_entered"]
+[connection signal="area_exited" from="RoomDoorDetector" to="." method="_on_room_door_detector_area_exited"]

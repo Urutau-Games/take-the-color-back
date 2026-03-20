@@ -2,6 +2,7 @@ extends Node2D
 
 @export var rotation_speed: float = 3
 @export var max_rotation_angle: float = 30
+@export var min_rotation_angle: float = -30
 @export var observation_time: float = .5
 
 @onready var pivot: Node2D = $Pivot
@@ -10,14 +11,12 @@ extends Node2D
 var tween: Tween
 
 func _ready() -> void:
-	var rotation_points = [-max_rotation_angle, max_rotation_angle]
-	
-	rotation_points.shuffle()
+	pivot.rotation_degrees = min_rotation_angle
 	
 	tween = create_tween().set_loops()
-	tween.tween_property(pivot, 'rotation_degrees', rotation_points[0], rotation_speed)
+	tween.tween_property(pivot, 'rotation_degrees', max_rotation_angle, rotation_speed)
 	tween.tween_interval(observation_time)
-	tween.tween_property(pivot, 'rotation_degrees', rotation_points[1], rotation_speed)
+	tween.tween_property(pivot, 'rotation_degrees', min_rotation_angle, rotation_speed)
 	tween.tween_interval(observation_time)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
