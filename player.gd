@@ -27,6 +27,9 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 	if event.is_action_pressed("toggle_hide") and not event.is_echo() and _current_door:
 		_is_hidden = not _is_hidden
+		if _is_hidden and not _current_door.holding_color == Constants.MissingColor.None:
+			EventBus.color_part_found.emit(_current_door.holding_color)
+			_current_door.holding_color = Constants.MissingColor.None
 		
 	standup_collision.disabled = _is_hidden or not _is_up
 	crouch_collision.disabled = _is_hidden or _is_up

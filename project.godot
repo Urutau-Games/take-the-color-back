@@ -15,6 +15,11 @@ run/main_scene="uid://der23pkgpluvc"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*uid://dyv577vntmitm"
+EventBus="*uid://dnmenoc4hew0b"
+
 [display]
 
 window/size/viewport_width=1920

@@ -1,0 +1,199 @@
+[gd_scene format=3 uid="uid://b8csf434b7iun"]
+
+[ext_resource type="Material" uid="uid://cstsnll7f4c1d" path="res://assets/greyscale_shader_material.tres" id="1_eow3j"]
+[ext_resource type="PackedScene" uid="uid://dmt4tj7a7pyyf" path="res://building.tscn" id="2_j5wjh"]
+[ext_resource type="Script" uid="uid://bt8jia31fjkac" path="res://game.gd" id="2_vef74"]
+[ext_resource type="Script" uid="uid://btnfagrdxqts1" path="res://floor.gd" id="3_j5wjh"]
+[ext_resource type="PackedScene" uid="uid://dojlb3o4eeupd" path="res://surveylance_camera.tscn" id="3_vef74"]
+[ext_resource type="PackedScene" uid="uid://ofxpyitacp7q" path="res://door.tscn" id="4_hve3p"]
+[ext_resource type="PackedScene" uid="uid://d3l8qst4sy2mc" path="res://guard.tscn" id="5_mfdv2"]
+[ext_resource type="PackedScene" uid="uid://evgqmavyoae" path="res://table.tscn" id="6_iotsf"]
+[ext_resource type="PackedScene" uid="uid://bh7t8eg8b8tfb" path="res://player.tscn" id="7_lc2xo"]
+
+[node name="Game" type="Node2D" unique_id=1530211558]
+material = ExtResource("1_eow3j")
+script = ExtResource("2_vef74")
+metadata/_edit_vertical_guides_ = [50.0, 100.0]
+metadata/_edit_horizontal_guides_ = [4865.0, 4435.0, 4835.0, 5265.0]
+
+[node name="Building" parent="." unique_id=614417209 instance=ExtResource("2_j5wjh")]
+
+[node name="Floor1" type="Node2D" parent="Building" unique_id=816625933]
+position = Vector2(100, 4866)
+script = ExtResource("3_j5wjh")
+floor_number = 1
+
+[node name="SurveylanceCamera" parent="Building/Floor1" unique_id=1661178715 instance=ExtResource("3_vef74")]
+position = Vector2(559, 0)
+max_rotation_angle = 72.0
+min_rotation_angle = -72.0
+
+[node name="SurveylanceCamera2" parent="Building/Floor1" unique_id=440771705 instance=ExtResource("3_vef74")]
+position = Vector2(1064, 0)
+max_rotation_angle = 72.0
+min_rotation_angle = -72.0
+
+[node name="Door" parent="Building/Floor1" unique_id=993681249 instance=ExtResource("4_hve3p")]
+position = Vector2(629, 250)
+
+[node name="Door2" parent="Building/Floor1" unique_id=1497188671 instance=ExtResource("4_hve3p")]
+position = Vector2(1064, 250)
+
+[node name="Floor2" type="Node2D" parent="Building" unique_id=835805425]
+position = Vector2(100, 4435)
+script = ExtResource("3_j5wjh")
+floor_number = 2
+
+[node name="Guard" parent="Building/Floor2" unique_id=859823445 instance=ExtResource("5_mfdv2")]
+position = Vector2(77, 292)
+
+[node name="Door" parent="Building/Floor2" unique_id=1173285320 instance=ExtResource("4_hve3p")]
+position = Vector2(283, 249)
+
+[node name="Door2" parent="Building/Floor2" unique_id=684514655 instance=ExtResource("4_hve3p")]
+position = Vector2(703, 249)
+
+[node name="Door3" parent="Building/Floor2" unique_id=879782040 instance=ExtResource("4_hve3p")]
+position = Vector2(1149, 249)
+
+[node name="Floor3" type="Node2D" parent="Building" unique_id=1135066796]
+position = Vector2(100, 4005)
+script = ExtResource("3_j5wjh")
+floor_number = 3
+
+[node name="Door4" parent="Building/Floor3" unique_id=1220853201 instance=ExtResource("4_hve3p")]
+position = Vector2(283, 250)
+
+[node name="Door6" parent="Building/Floor3" unique_id=1816956868 instance=ExtResource("4_hve3p")]
+position = Vector2(1149, 250)
+
+[node name="Table" parent="Building/Floor3" unique_id=1331416385 instance=ExtResource("6_iotsf")]
+position = Vector2(703, 279)
+
+[node name="SurveylanceCamera" parent="Building/Floor3" unique_id=497423591 instance=ExtResource("3_vef74")]
+position = Vector2(703, -1)
+max_rotation_angle = 72.0
+min_rotation_angle = -72.0
+
+[node name="SurveylanceCamera2" parent="Building/Floor3" unique_id=229550850 instance=ExtResource("3_vef74")]
+position = Vector2(283, -1)
+max_rotation_angle = 72.0
+min_rotation_angle = -72.0
+
+[node name="SurveylanceCamera3" parent="Building/Floor3" unique_id=2128166991 instance=ExtResource("3_vef74")]
+position = Vector2(1149, -1)
+max_rotation_angle = 72.0
+min_rotation_angle = -35.0
+observation_time = 1.0
+
+[node name="Floor4" type="Node2D" parent="Building" unique_id=803007737]
+position = Vector2(100, 3575)
+script = ExtResource("3_j5wjh")
+floor_number = 4
+
+[node name="Door5" parent="Building/Floor4" unique_id=71106636 instance=ExtResource("4_hve3p")]
+position = Vector2(166, 261)
+
+[node name="Door7" parent="Building/Floor4" unique_id=339969219 instance=ExtResource("4_hve3p")]
+position = Vector2(460, 261)
+
+[node name="Floor5" type="Node2D" parent="Building" unique_id=1294613327]
+position = Vector2(100, 3145)
+script = ExtResource("3_j5wjh")
+floor_number = 5
+
+[node name="Door11" parent="Building/Floor5" unique_id=697710157 instance=ExtResource("4_hve3p")]
+position = Vector2(832, -1044)
+
+[node name="Floor6" type="Node2D" parent="Building" unique_id=810280962]
+position = Vector2(100, 2715)
+script = ExtResource("3_j5wjh")
+floor_number = 6
+
+[node name="Door4" parent="Building/Floor6" unique_id=1561154747 instance=ExtResource("4_hve3p")]
+position = Vector2(526, 255)
+
+[node name="Door5" parent="Building/Floor6" unique_id=227180981 instance=ExtResource("4_hve3p")]
+position = Vector2(946, 255)
+
+[node name="Door6" parent="Building/Floor6" unique_id=655062537 instance=ExtResource("4_hve3p")]
+position = Vector2(1392, 255)
+
+[node name="Floor7" type="Node2D" parent="Building" unique_id=1058044341]
+position = Vector2(100, 2285)
+script = ExtResource("3_j5wjh")
+floor_number = 7
+
+[node name="Door7" parent="Building/Floor7" unique_id=410682543 instance=ExtResource("4_hve3p")]
+position = Vector2(526, 248)
+
+[node name="Door8" parent="Building/Floor7" unique_id=765664157 instance=ExtResource("4_hve3p")]
+position = Vector2(946, 248)
+
+[node name="Door9" parent="Building/Floor7" unique_id=860186202 instance=ExtResource("4_hve3p")]
+position = Vector2(1392, 248)
+
+[node name="Floor8" type="Node2D" parent="Building" unique_id=1077514985]
+position = Vector2(100, 1855)
+script = ExtResource("3_j5wjh")
+floor_number = 8
+
+[node name="Door10" parent="Building/Floor8" unique_id=46000774 instance=ExtResource("4_hve3p")]
+position = Vector2(832, 1539)
+
+[node name="Floor9" type="Node2D" parent="Building" unique_id=415392670]
+position = Vector2(100, 1425)
+script = ExtResource("3_j5wjh")
+floor_number = 9
+
+[node name="Door11" parent="Building/Floor9" unique_id=497199207 instance=ExtResource("4_hve3p")]
+position = Vector2(832, 248)
+
+[node name="Floor10" type="Node2D" parent="Building" unique_id=1824617979]
+position = Vector2(100, 995)
+script = ExtResource("3_j5wjh")
+floor_number = 10
+
+[node name="Door6" parent="Building/Floor10" unique_id=1599550317 instance=ExtResource("4_hve3p")]
+position = Vector2(166, 250)
+
+[node name="Door8" parent="Building/Floor10" unique_id=66650415 instance=ExtResource("4_hve3p")]
+position = Vector2(460, 250)
+
+[node name="Floor11" type="Node2D" parent="Building" unique_id=545821391]
+position = Vector2(100, 565)
+script = ExtResource("3_j5wjh")
+floor_number = 11
+
+[node name="Door4" parent="Building/Floor11" unique_id=2000731124 instance=ExtResource("4_hve3p")]
+position = Vector2(199, 250)
+
+[node name="Door5" parent="Building/Floor11" unique_id=185848864 instance=ExtResource("4_hve3p")]
+position = Vector2(619, 250)
+
+[node name="Door6" parent="Building/Floor11" unique_id=1411484106 instance=ExtResource("4_hve3p")]
+position = Vector2(1065, 250)
+
+[node name="Floor12" type="Node2D" parent="Building" unique_id=1494591091]
+position = Vector2(100, 135)
+script = ExtResource("3_j5wjh")
+floor_number = 12
+
+[node name="Door3" parent="Building/Floor12" unique_id=658339594 instance=ExtResource("4_hve3p")]
+position = Vector2(408, 254)
+
+[node name="Door4" parent="Building/Floor12" unique_id=630316036 instance=ExtResource("4_hve3p")]
+position = Vector2(843, 254)
+
+[node name="Player" parent="." unique_id=1614203785 instance=ExtResource("7_lc2xo")]
+position = Vector2(178, 5157)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1160245212]
+position = Vector2(754, -298)
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 5400
+
+[node name="SurveylanceCamera2" parent="." unique_id=1547006197 instance=ExtResource("3_vef74")]
+position = Vector2(1250, 135)
