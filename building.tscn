@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dmt4tj7a7pyyf"]
 
-[ext_resource type="Texture2D" uid="uid://cgm1xs0edljgc" path="res://assets/placeholders/drawing.svg" id="1_5j34s"]
+[ext_resource type="Texture2D" uid="uid://dlhw8sedociw5" path="res://assets/background.png" id="1_f1gjg"]
 [ext_resource type="PackedScene" uid="uid://cxnn6p66yn6j1" path="res://wall.tscn" id="2_2yopf"]
 [ext_resource type="PackedScene" uid="uid://dq6hljsvj3fcd" path="res://elevator.tscn" id="3_f1gjg"]
 
@@ -9,7 +9,7 @@ metadata/_edit_vertical_guides_ = [1820.0]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1057230854]
 position = Vector2(960, 2700)
-texture = ExtResource("1_5j34s")
+texture = ExtResource("1_f1gjg")
 
 [node name="Walls" type="Node2D" parent="." unique_id=993805934]
 
