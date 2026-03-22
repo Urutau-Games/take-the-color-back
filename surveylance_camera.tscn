@@ -1,11 +1,16 @@
 [gd_scene format=3 uid="uid://dojlb3o4eeupd"]
 
 [ext_resource type="Script" uid="uid://bpnepn6mqvert" path="res://surveylance_camera.gd" id="1_vca8k"]
+[ext_resource type="Texture2D" uid="uid://dccpv4q1xiwtm" path="res://assets/camera.png" id="2_0a5go"]
+[ext_resource type="Texture2D" uid="uid://dpmfgl0yn8m8l" path="res://assets/camera_view_area.png" id="3_iiu6s"]
 
 [node name="SurveylanceCamera" type="Node2D" unique_id=1661178715]
 script = ExtResource("1_vca8k")
 rotation_speed = 6.0
 max_rotation_angle = 50.0
+
+[node name="Camera" type="Sprite2D" parent="." unique_id=1971655479]
+texture = ExtResource("2_0a5go")
 
 [node name="Pivot" type="Node2D" parent="." unique_id=1506908010]
 
@@ -13,7 +18,12 @@ max_rotation_angle = 50.0
 collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pivot/Area2D" unique_id=267131834]
-polygon = PackedVector2Array(0, 0, -120, 380, 120, 380)
+position = Vector2(-1, 3)
+polygon = PackedVector2Array(1, 35, -114, 352, 116, 353)
+
+[node name="CameraViewArea" type="Sprite2D" parent="Pivot" unique_id=875503488]
+position = Vector2(0, 185)
+texture = ExtResource("3_iiu6s")
 
 [node name="RayCast" type="RayCast2D" parent="." unique_id=1891147839]
 collision_mask = 3

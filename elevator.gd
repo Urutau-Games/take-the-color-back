@@ -3,7 +3,12 @@ extends AnimatableBody2D
 @export var highest_floor: int = 5
 @export var lowest_floor: int = 1
 @export var elevator_speed: int = 5
+
+@export var disabled_light: Color
+@export var enabled_light: Color
+
 @onready var door: StaticBody2D = $Door
+@onready var indicator_light: PointLight2D = $IndicatorLight
 
 const floor_size: float = 430
 
@@ -17,13 +22,16 @@ var _target_position: float = 0
 
 func _ready() -> void:
 	_initial_position = global_position.y
+	indicator_light.color = disabled_light
 	door.process_mode = Node.PROCESS_MODE_DISABLED
 
 func _on_safe_zone_body_entered(_body: Node2D) -> void:
 	_is_player_safe = true
+	indicator_light.color = enabled_light
 
 func _on_safe_zone_body_exited(_body: Node2D) -> void:
 	_is_player_safe = false
+	indicator_light.color = disabled_light
 
 func _physics_process(_delta: float) -> void:
 	if not _is_player_safe or _is_moving:

@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://dojlb3o4eeupd" path="res://surveylance_camera.tscn" id="3_vef74"]
 [ext_resource type="PackedScene" uid="uid://ofxpyitacp7q" path="res://door.tscn" id="4_hve3p"]
 [ext_resource type="PackedScene" uid="uid://d3l8qst4sy2mc" path="res://guard.tscn" id="5_mfdv2"]
-[ext_resource type="PackedScene" uid="uid://evgqmavyoae" path="res://table.tscn" id="6_iotsf"]
 [ext_resource type="PackedScene" uid="uid://bh7t8eg8b8tfb" path="res://player.tscn" id="7_lc2xo"]
 
 [node name="Game" type="Node2D" unique_id=1530211558]
@@ -23,6 +22,12 @@ position = Vector2(100, 4866)
 script = ExtResource("3_j5wjh")
 floor_number = 1
 
+[node name="Door" parent="Building/Floor1" unique_id=993681249 instance=ExtResource("4_hve3p")]
+position = Vector2(629, 250)
+
+[node name="Door2" parent="Building/Floor1" unique_id=1497188671 instance=ExtResource("4_hve3p")]
+position = Vector2(1064, 250)
+
 [node name="SurveylanceCamera" parent="Building/Floor1" unique_id=1661178715 instance=ExtResource("3_vef74")]
 position = Vector2(559, 0)
 max_rotation_angle = 72.0
@@ -33,19 +38,10 @@ position = Vector2(1064, 0)
 max_rotation_angle = 72.0
 min_rotation_angle = -72.0
 
-[node name="Door" parent="Building/Floor1" unique_id=993681249 instance=ExtResource("4_hve3p")]
-position = Vector2(629, 250)
-
-[node name="Door2" parent="Building/Floor1" unique_id=1497188671 instance=ExtResource("4_hve3p")]
-position = Vector2(1064, 250)
-
 [node name="Floor2" type="Node2D" parent="Building" unique_id=835805425]
 position = Vector2(100, 4435)
 script = ExtResource("3_j5wjh")
 floor_number = 2
-
-[node name="Guard" parent="Building/Floor2" unique_id=859823445 instance=ExtResource("5_mfdv2")]
-position = Vector2(77, 292)
 
 [node name="Door" parent="Building/Floor2" unique_id=1173285320 instance=ExtResource("4_hve3p")]
 position = Vector2(283, 249)
@@ -55,6 +51,9 @@ position = Vector2(703, 249)
 
 [node name="Door3" parent="Building/Floor2" unique_id=879782040 instance=ExtResource("4_hve3p")]
 position = Vector2(1149, 249)
+
+[node name="Guard" parent="Building/Floor2" unique_id=859823445 instance=ExtResource("5_mfdv2")]
+position = Vector2(70, 337)
 
 [node name="Floor3" type="Node2D" parent="Building" unique_id=1135066796]
 position = Vector2(100, 4005)
@@ -66,9 +65,6 @@ position = Vector2(283, 250)
 
 [node name="Door6" parent="Building/Floor3" unique_id=1816956868 instance=ExtResource("4_hve3p")]
 position = Vector2(1149, 250)
-
-[node name="Table" parent="Building/Floor3" unique_id=1331416385 instance=ExtResource("6_iotsf")]
-position = Vector2(703, 279)
 
 [node name="SurveylanceCamera" parent="Building/Floor3" unique_id=497423591 instance=ExtResource("3_vef74")]
 position = Vector2(703, -1)
@@ -186,7 +182,7 @@ position = Vector2(408, 254)
 position = Vector2(843, 254)
 
 [node name="Player" parent="." unique_id=1614203785 instance=ExtResource("7_lc2xo")]
-position = Vector2(178, 5157)
+position = Vector2(159, 5203)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1160245212]
 position = Vector2(754, -298)
@@ -194,6 +190,3 @@ limit_left = 0
 limit_top = 0
 limit_right = 1920
 limit_bottom = 5400
-
-[node name="SurveylanceCamera2" parent="." unique_id=1547006197 instance=ExtResource("3_vef74")]
-position = Vector2(1250, 135)

@@ -1,53 +1,83 @@
 [gd_scene format=3 uid="uid://dmt4tj7a7pyyf"]
 
 [ext_resource type="Texture2D" uid="uid://dlhw8sedociw5" path="res://assets/background.png" id="1_f1gjg"]
-[ext_resource type="PackedScene" uid="uid://cxnn6p66yn6j1" path="res://wall.tscn" id="2_2yopf"]
 [ext_resource type="PackedScene" uid="uid://dq6hljsvj3fcd" path="res://elevator.tscn" id="3_f1gjg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1gjg"]
+resource_local_to_scene = true
+size = Vector2(50, 5400)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnfc1"]
+resource_local_to_scene = true
+size = Vector2(50, 5400)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2yopf"]
+resource_local_to_scene = true
+size = Vector2(50, 1690)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0rysw"]
+resource_local_to_scene = true
+size = Vector2(50, 2120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ow2p3"]
+resource_local_to_scene = true
+size = Vector2(50, 2120)
 
 [node name="Building" type="Node2D" unique_id=614417209]
 metadata/_edit_vertical_guides_ = [1820.0]
+metadata/_edit_horizontal_guides_ = [5080.0, 5267.0]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1057230854]
 position = Vector2(960, 2700)
 texture = ExtResource("1_f1gjg")
+metadata/_edit_lock_ = true
 
 [node name="Walls" type="Node2D" parent="." unique_id=993805934]
 
-[node name="Wall" parent="Walls" unique_id=596872435 instance=ExtResource("2_2yopf")]
-position = Vector2(75, 5065)
+[node name="Wall" type="StaticBody2D" parent="Walls" unique_id=1073583405]
+collision_layer = 4
+collision_mask = 0
+metadata/_edit_lock_ = true
 
-[node name="Wall2" parent="Walls" unique_id=848253429 instance=ExtResource("2_2yopf")]
-position = Vector2(75, 4635)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall" unique_id=1974287447]
+position = Vector2(75, 2700)
+shape = SubResource("RectangleShape2D_f1gjg")
+debug_color = Color(1, 0.019449828, 0.00029224993, 0.41960785)
 
-[node name="Wall3" parent="Walls" unique_id=186372237 instance=ExtResource("2_2yopf")]
-position = Vector2(75, 4205)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Wall" unique_id=436794294]
+position = Vector2(1845, 2700)
+shape = SubResource("RectangleShape2D_qnfc1")
+debug_color = Color(1, 0.019449828, 0.00029224993, 0.41960785)
 
-[node name="Wall4" parent="Walls" unique_id=897248745 instance=ExtResource("2_2yopf")]
-position = Vector2(75, 3775)
+[node name="ForTheRobot" type="StaticBody2D" parent="Walls" unique_id=674878593]
+position = Vector2(1597, 2700)
+collision_layer = 32
+collision_mask = 0
 
-[node name="Wall7" parent="Walls" unique_id=1782345949 instance=ExtResource("2_2yopf")]
-position = Vector2(75, 1195)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/ForTheRobot" unique_id=14767666]
+position = Vector2(-2, -1720)
+shape = SubResource("RectangleShape2D_2yopf")
+debug_color = Color(0.88493097, 0.017605651, 0.8054513, 0.41960785)
 
-[node name="Wall8" parent="Walls" unique_id=1172672371 instance=ExtResource("2_2yopf")]
-position = Vector2(75, 765)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/ForTheRobot" unique_id=1706377821]
+position = Vector2(-1272, -215)
+shape = SubResource("RectangleShape2D_0rysw")
+debug_color = Color(0.88493097, 0.017605651, 0.8054513, 0.41960785)
 
-[node name="Wall9" parent="Walls" unique_id=2081631356 instance=ExtResource("2_2yopf")]
-position = Vector2(75, 335)
-
-[node name="Wall5" parent="Walls" unique_id=57154217 instance=ExtResource("2_2yopf")]
-position = Vector2(1845, 2915)
-
-[node name="Wall6" parent="Walls" unique_id=1330981468 instance=ExtResource("2_2yopf")]
-position = Vector2(1845, 2485)
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls/ForTheRobot" unique_id=656562986]
+position = Vector2(-2, 1506)
+shape = SubResource("RectangleShape2D_ow2p3")
+debug_color = Color(0.88493097, 0.017605651, 0.8054513, 0.41960785)
 
 [node name="Elevators" type="Node2D" parent="." unique_id=977245832]
 
 [node name="Elevator" parent="Elevators" unique_id=1127887966 instance=ExtResource("3_f1gjg")]
-position = Vector2(1695, 5280)
+position = Vector2(1699, 5281)
 
 [node name="Elevator2" parent="Elevators" unique_id=68066074 instance=ExtResource("3_f1gjg")]
-position = Vector2(1695, 2270)
+position = Vector2(1696, 1839)
+highest_floor = 4
 
 [node name="Elevator3" parent="Elevators" unique_id=393985655 instance=ExtResource("3_f1gjg")]
-position = Vector2(225, 3560)
+position = Vector2(223, 3560)
 scale = Vector2(-1, 1)

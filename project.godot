@@ -73,6 +73,7 @@ toggle_hide={
 2d_physics/layer_3="Walls and Floor"
 2d_physics/layer_4="Guards"
 2d_physics/layer_5="RoomDoor"
+2d_physics/layer_6="RobotTracker"
 
 [physics]
 
