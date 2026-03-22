@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://sknhm8iipm3"]
+
+[ext_resource type="Texture2D" uid="uid://5wimrqsvdqoa" path="res://assets/colors_saved.png" id="1_0ntxo"]
+[ext_resource type="Script" uid="uid://vnd2ue7ijuxq" path="res://screns/escaped_screen.gd" id="1_qt0t8"]
+
+[node name="Escaped" type="Control" unique_id=1799712097]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qt0t8")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=750790514]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0ntxo")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=224939429]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 75
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=223023228]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 50
+
+[node name="Play" type="Button" parent="MarginContainer/HBoxContainer" unique_id=575939461]
+layout_mode = 2
+theme_type_variation = &"TitleScreenButton"
+text = "Try Again"
+
+[node name="Menu" type="Button" parent="MarginContainer/HBoxContainer" unique_id=142353765]
+layout_mode = 2
+theme_type_variation = &"TitleScreenButton"
+text = "Menu"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Menu" to="." method="_on_menu_pressed"]

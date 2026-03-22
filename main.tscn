@@ -1,92 +1,26 @@
 [gd_scene format=3 uid="uid://der23pkgpluvc"]
 
 [ext_resource type="Material" uid="uid://cstsnll7f4c1d" path="res://assets/greyscale_shader_material.tres" id="1_272bh"]
-[ext_resource type="PackedScene" uid="uid://b8csf434b7iun" path="res://game.tscn" id="2_0xm2m"]
-[ext_resource type="Script" uid="uid://dttobchk5743j" path="res://game_hud.gd" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://b8csf434b7iun" path="res://screns/game_screen.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://bi2tuvycxkeij" path="res://main.gd" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://dsji62dvopw1m" path="res://screns/title_screen.tscn" id="3_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://c3r0wjoprn0e2" path="res://screns/game_over_screen.tscn" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://sknhm8iipm3" path="res://screns/escaped_screen.tscn" id="6_272bh"]
 
-[node name="SubViewportContainer" type="SubViewportContainer" unique_id=929138640]
+[node name="Main" type="SubViewportContainer" unique_id=929138640]
 material = ExtResource("1_272bh")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_h2yge")
+title_screen = ExtResource("3_1bvp3")
+game_screen = ExtResource("2_0xm2m")
+game_over_screen = ExtResource("5_7mycd")
+win_screen = ExtResource("6_272bh")
 
-[node name="SubViewport" type="SubViewport" parent="." unique_id=1544538015]
+[node name="Container" type="SubViewport" parent="." unique_id=1544538015]
 handle_input_locally = false
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
-
-[node name="Game" parent="SubViewport" unique_id=1530211558 instance=ExtResource("2_0xm2m")]
-
-[node name="UILayer" type="CanvasLayer" parent="SubViewport" unique_id=921801037]
-
-[node name="GameHud" type="Control" parent="SubViewport/UILayer" unique_id=1450623200]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("3_h2yge")
-
-[node name="PanelContainer" type="PanelContainer" parent="SubViewport/UILayer/GameHud" unique_id=1109650863]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="SubViewport/UILayer/GameHud/PanelContainer" unique_id=342570810]
-custom_minimum_size = Vector2(900, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 50
-
-[node name="Label" type="Label" parent="SubViewport/UILayer/GameHud/PanelContainer/HBoxContainer" unique_id=1374571572]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "Red"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="RedBar" type="ProgressBar" parent="SubViewport/UILayer/GameHud/PanelContainer/HBoxContainer" unique_id=127761722]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-max_value = 1.0
-step = 0.0
-
-[node name="Label2" type="Label" parent="SubViewport/UILayer/GameHud/PanelContainer/HBoxContainer" unique_id=33963810]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "Green"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="GreenBar" type="ProgressBar" parent="SubViewport/UILayer/GameHud/PanelContainer/HBoxContainer" unique_id=1338847989]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-max_value = 1.0
-step = 0.0
-
-[node name="Label3" type="Label" parent="SubViewport/UILayer/GameHud/PanelContainer/HBoxContainer" unique_id=1814633551]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "Blue"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="BlueBar" type="ProgressBar" parent="SubViewport/UILayer/GameHud/PanelContainer/HBoxContainer" unique_id=542360916]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-max_value = 1.0
-step = 0.0

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dojlb3o4eeupd"]
 
-[ext_resource type="Script" uid="uid://bpnepn6mqvert" path="res://surveylance_camera.gd" id="1_vca8k"]
+[ext_resource type="Script" uid="uid://bpnepn6mqvert" path="res://objects/surveylance_camera.gd" id="1_vca8k"]
 [ext_resource type="Texture2D" uid="uid://dccpv4q1xiwtm" path="res://assets/camera.png" id="2_0a5go"]
 [ext_resource type="Texture2D" uid="uid://dpmfgl0yn8m8l" path="res://assets/camera_view_area.png" id="3_iiu6s"]
 
@@ -26,6 +26,6 @@ position = Vector2(0, 185)
 texture = ExtResource("3_iiu6s")
 
 [node name="RayCast" type="RayCast2D" parent="." unique_id=1891147839]
-collision_mask = 3
+collision_mask = 39
 
 [connection signal="body_entered" from="Pivot/Area2D" to="." method="_on_area_2d_body_entered"]

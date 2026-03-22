@@ -1,5 +1,5 @@
 shader_type canvas_item;
-
+	
 uniform bool has_red = true;
 uniform bool has_green = true;
 uniform bool has_blue = true;

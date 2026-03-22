@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dq6hljsvj3fcd"]
 
-[ext_resource type="Script" uid="uid://fyp4pe0m3swx" path="res://elevator.gd" id="1_uuuf0"]
+[ext_resource type="Script" uid="uid://fyp4pe0m3swx" path="res://objects/elevator.gd" id="1_uuuf0"]
 [ext_resource type="Texture2D" uid="uid://dhliaa2ugvygu" path="res://assets/elevator.png" id="2_a1q2r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2yopf"]
@@ -32,18 +32,22 @@ position = Vector2(-1, -200)
 texture = ExtResource("2_a1q2r")
 
 [node name="Floor" type="CollisionShape2D" parent="." unique_id=1902977701]
+visible = false
 shape = SubResource("RectangleShape2D_2yopf")
 debug_color = Color(0.86436534, 0.11779002, 0.8173685, 0.41960785)
 
 [node name="SafeZone" type="Area2D" parent="." unique_id=2096601246]
+visible = false
 position = Vector2(57, -215)
 collision_layer = 0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="SafeZone" unique_id=153786983]
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_f1gjg")
 debug_color = Color(1, 0.5568628, 0.2509804, 0.41960785)
 
 [node name="Door" type="StaticBody2D" parent="." unique_id=2023294092]
+visible = false
 position = Vector2(-150, -216)
 collision_layer = 4
 collision_mask = 0
@@ -53,6 +57,7 @@ shape = SubResource("RectangleShape2D_pc862")
 debug_color = Color(0.68171096, 0.5029152, 0.029382283, 0.41960785)
 
 [node name="Back" type="StaticBody2D" parent="." unique_id=1511899989]
+visible = false
 position = Vector2(123, -216)
 collision_layer = 4
 collision_mask = 0

@@ -1,0 +1,405 @@
+[gd_scene format=3 uid="uid://b8csf434b7iun"]
+
+[ext_resource type="Material" uid="uid://cstsnll7f4c1d" path="res://assets/greyscale_shader_material.tres" id="1_eow3j"]
+[ext_resource type="PackedScene" uid="uid://dmt4tj7a7pyyf" path="res://objects/building.tscn" id="2_j5wjh"]
+[ext_resource type="Script" uid="uid://bt8jia31fjkac" path="res://screns/game_screen.gd" id="2_vef74"]
+[ext_resource type="Script" uid="uid://btnfagrdxqts1" path="res://objects/floor.gd" id="3_j5wjh"]
+[ext_resource type="PackedScene" uid="uid://dojlb3o4eeupd" path="res://objects/surveylance_camera.tscn" id="3_vef74"]
+[ext_resource type="PackedScene" uid="uid://ofxpyitacp7q" path="res://objects/door.tscn" id="4_hve3p"]
+[ext_resource type="PackedScene" uid="uid://d3l8qst4sy2mc" path="res://objects/guard.tscn" id="5_mfdv2"]
+[ext_resource type="PackedScene" uid="uid://bh7t8eg8b8tfb" path="res://objects/player.tscn" id="7_lc2xo"]
+[ext_resource type="PackedScene" uid="uid://rxln5hdf53x8" path="res://objects/exit_door.tscn" id="8_vef74"]
+[ext_resource type="Script" uid="uid://dttobchk5743j" path="res://game_hud.gd" id="10_e8hgk"]
+
+[node name="Game" type="Node2D" unique_id=1530211558]
+material = ExtResource("1_eow3j")
+script = ExtResource("2_vef74")
+
+[node name="Building" parent="." unique_id=614417209 instance=ExtResource("2_j5wjh")]
+
+[node name="Floor1" type="Node2D" parent="Building" unique_id=816625933]
+position = Vector2(100, 4866)
+script = ExtResource("3_j5wjh")
+floor_number = 1
+
+[node name="Door" parent="Building/Floor1" unique_id=993681249 instance=ExtResource("4_hve3p")]
+position = Vector2(741, 250)
+
+[node name="Door2" parent="Building/Floor1" unique_id=1497188671 instance=ExtResource("4_hve3p")]
+position = Vector2(1152, 250)
+
+[node name="SurveylanceCamera" parent="Building/Floor1" unique_id=1661178715 instance=ExtResource("3_vef74")]
+position = Vector2(735, 0)
+max_rotation_angle = 72.0
+min_rotation_angle = -72.0
+
+[node name="SurveylanceCamera2" parent="Building/Floor1" unique_id=440771705 instance=ExtResource("3_vef74")]
+position = Vector2(1152, 0)
+max_rotation_angle = 72.0
+min_rotation_angle = -72.0
+
+[node name="Floor2" type="Node2D" parent="Building" unique_id=835805425]
+position = Vector2(100, 4435)
+script = ExtResource("3_j5wjh")
+floor_number = 2
+
+[node name="Door" parent="Building/Floor2" unique_id=1173285320 instance=ExtResource("4_hve3p")]
+position = Vector2(283, 250)
+
+[node name="Door2" parent="Building/Floor2" unique_id=684514655 instance=ExtResource("4_hve3p")]
+position = Vector2(703, 250)
+
+[node name="Door3" parent="Building/Floor2" unique_id=879782040 instance=ExtResource("4_hve3p")]
+position = Vector2(1149, 250)
+
+[node name="Guard" parent="Building/Floor2" unique_id=859823445 instance=ExtResource("5_mfdv2")]
+position = Vector2(70, 337)
+
+[node name="Floor3" type="Node2D" parent="Building" unique_id=1135066796]
+position = Vector2(100, 4005)
+script = ExtResource("3_j5wjh")
+floor_number = 3
+
+[node name="Door4" parent="Building/Floor3" unique_id=1220853201 instance=ExtResource("4_hve3p")]
+position = Vector2(283, 251)
+
+[node name="Door6" parent="Building/Floor3" unique_id=1816956868 instance=ExtResource("4_hve3p")]
+position = Vector2(1149, 251)
+
+[node name="Door7" parent="Building/Floor3" unique_id=217281678 instance=ExtResource("4_hve3p")]
+position = Vector2(845, 251)
+
+[node name="SurveylanceCamera" parent="Building/Floor3" unique_id=497423591 instance=ExtResource("3_vef74")]
+position = Vector2(703, -1)
+max_rotation_angle = 72.0
+min_rotation_angle = -72.0
+
+[node name="SurveylanceCamera2" parent="Building/Floor3" unique_id=229550850 instance=ExtResource("3_vef74")]
+position = Vector2(283, -1)
+max_rotation_angle = 72.0
+min_rotation_angle = -72.0
+
+[node name="SurveylanceCamera3" parent="Building/Floor3" unique_id=2128166991 instance=ExtResource("3_vef74")]
+position = Vector2(1149, -1)
+max_rotation_angle = 72.0
+min_rotation_angle = -60.0
+observation_time = 1.0
+
+[node name="Floor4" type="Node2D" parent="Building" unique_id=803007737]
+position = Vector2(100, 3575)
+script = ExtResource("3_j5wjh")
+floor_number = 4
+
+[node name="Door5" parent="Building/Floor4" unique_id=71106636 instance=ExtResource("4_hve3p")]
+position = Vector2(166, 250)
+
+[node name="Door7" parent="Building/Floor4" unique_id=339969219 instance=ExtResource("4_hve3p")]
+position = Vector2(460, 250)
+
+[node name="SurveylanceCamera" parent="Building/Floor4" unique_id=1084439552 instance=ExtResource("3_vef74")]
+position = Vector2(316, 1)
+max_rotation_angle = 72.0
+min_rotation_angle = -72.0
+
+[node name="Guard" parent="Building/Floor4" unique_id=1870962740 instance=ExtResource("5_mfdv2")]
+position = Vector2(1215, 338)
+start_inverted = true
+
+[node name="Floor5" type="Node2D" parent="Building" unique_id=1077514985]
+position = Vector2(100, 3145)
+script = ExtResource("3_j5wjh")
+floor_number = 8
+
+[node name="Door10" parent="Building/Floor5" unique_id=46000774 instance=ExtResource("4_hve3p")]
+position = Vector2(795, 250)
+
+[node name="Door11" parent="Building/Floor5" unique_id=1361819974 instance=ExtResource("4_hve3p")]
+position = Vector2(1043, 250)
+
+[node name="SurveylanceCamera" parent="Building/Floor5" unique_id=165189176 instance=ExtResource("3_vef74")]
+position = Vector2(393, -1)
+rotation_speed = 5.0
+max_rotation_angle = 0.0
+min_rotation_angle = -72.0
+observation_time = 1.5
+
+[node name="Guard" parent="Building/Floor5" unique_id=1672122948 instance=ExtResource("5_mfdv2")]
+position = Vector2(329, 338)
+walk_speed = 250.0
+
+[node name="Floor6" type="Node2D" parent="Building" unique_id=810280962]
+position = Vector2(100, 2715)
+script = ExtResource("3_j5wjh")
+floor_number = 6
+
+[node name="Door4" parent="Building/Floor6" unique_id=1561154747 instance=ExtResource("4_hve3p")]
+position = Vector2(526, 251)
+
+[node name="Door5" parent="Building/Floor6" unique_id=227180981 instance=ExtResource("4_hve3p")]
+position = Vector2(946, 251)
+
+[node name="Door6" parent="Building/Floor6" unique_id=655062537 instance=ExtResource("4_hve3p")]
+position = Vector2(1392, 251)
+
+[node name="Guard" parent="Building/Floor6" unique_id=1089862816 instance=ExtResource("5_mfdv2")]
+position = Vector2(1648, 338)
+start_inverted = true
+
+[node name="Guard2" parent="Building/Floor6" unique_id=895836361 instance=ExtResource("5_mfdv2")]
+position = Vector2(303, 338)
+
+[node name="Floor7" type="Node2D" parent="Building" unique_id=1058044341]
+position = Vector2(100, 2285)
+script = ExtResource("3_j5wjh")
+floor_number = 7
+
+[node name="Door7" parent="Building/Floor7" unique_id=410682543 instance=ExtResource("4_hve3p")]
+position = Vector2(526, 250)
+
+[node name="Door8" parent="Building/Floor7" unique_id=765664157 instance=ExtResource("4_hve3p")]
+position = Vector2(946, 250)
+
+[node name="Door9" parent="Building/Floor7" unique_id=860186202 instance=ExtResource("4_hve3p")]
+position = Vector2(1392, 250)
+
+[node name="SurveylanceCamera" parent="Building/Floor7" unique_id=1262809696 instance=ExtResource("3_vef74")]
+position = Vector2(647, 2)
+rotation_speed = 4.0
+max_rotation_angle = 72.0
+min_rotation_angle = -72.0
+observation_time = 1.0
+
+[node name="SurveylanceCamera2" parent="Building/Floor7" unique_id=328899733 instance=ExtResource("3_vef74")]
+position = Vector2(983, 2)
+rotation_speed = 4.0
+max_rotation_angle = 72.0
+min_rotation_angle = -72.0
+observation_time = 1.5
+
+[node name="SurveylanceCamera3" parent="Building/Floor7" unique_id=753292602 instance=ExtResource("3_vef74")]
+position = Vector2(1311, 2)
+rotation_speed = 4.0
+max_rotation_angle = 72.0
+min_rotation_angle = -72.0
+observation_time = 1.0
+
+[node name="Floor8" type="Node2D" parent="Building" unique_id=1294613327]
+position = Vector2(100, 1855)
+script = ExtResource("3_j5wjh")
+floor_number = 5
+
+[node name="Door11" parent="Building/Floor8" unique_id=697710157 instance=ExtResource("4_hve3p")]
+position = Vector2(805, 251)
+
+[node name="Door12" parent="Building/Floor8" unique_id=439232641 instance=ExtResource("4_hve3p")]
+position = Vector2(1109, 251)
+
+[node name="Door13" parent="Building/Floor8" unique_id=84770649 instance=ExtResource("4_hve3p")]
+position = Vector2(477, 251)
+
+[node name="Door14" parent="Building/Floor8" unique_id=1235491638 instance=ExtResource("4_hve3p")]
+position = Vector2(1429, 251)
+
+[node name="Guard3" parent="Building/Floor8" unique_id=753164260 instance=ExtResource("5_mfdv2")]
+position = Vector2(1648, 337)
+start_inverted = true
+
+[node name="Guard4" parent="Building/Floor8" unique_id=1132057483 instance=ExtResource("5_mfdv2")]
+position = Vector2(303, 337)
+
+[node name="SurveylanceCamera" parent="Building/Floor8" unique_id=1774667839 instance=ExtResource("3_vef74")]
+position = Vector2(640, 0)
+rotation_speed = 4.5
+max_rotation_angle = 72.0
+min_rotation_angle = -72.0
+observation_time = 1.5
+
+[node name="SurveylanceCamera2" parent="Building/Floor8" unique_id=857223297 instance=ExtResource("3_vef74")]
+position = Vector2(1280, 0)
+rotation_speed = 4.5
+max_rotation_angle = 72.0
+min_rotation_angle = -72.0
+observation_time = 1.5
+
+[node name="Floor9" type="Node2D" parent="Building" unique_id=415392670]
+position = Vector2(100, 1425)
+script = ExtResource("3_j5wjh")
+floor_number = 9
+
+[node name="Door11" parent="Building/Floor9" unique_id=497199207 instance=ExtResource("4_hve3p")]
+position = Vector2(688, 250)
+
+[node name="Door12" parent="Building/Floor9" unique_id=670457342 instance=ExtResource("4_hve3p")]
+position = Vector2(1088, 250)
+
+[node name="Guard" parent="Building/Floor9" unique_id=1299201566 instance=ExtResource("5_mfdv2")]
+position = Vector2(298, 338)
+
+[node name="Guard2" parent="Building/Floor9" unique_id=2011885559 instance=ExtResource("5_mfdv2")]
+position = Vector2(1381, 337)
+start_inverted = true
+
+[node name="Floor10" type="Node2D" parent="Building" unique_id=1824617979]
+position = Vector2(100, 995)
+script = ExtResource("3_j5wjh")
+floor_number = 10
+
+[node name="Door6" parent="Building/Floor10" unique_id=1599550317 instance=ExtResource("4_hve3p")]
+position = Vector2(166, 250)
+
+[node name="Door8" parent="Building/Floor10" unique_id=66650415 instance=ExtResource("4_hve3p")]
+position = Vector2(460, 250)
+
+[node name="Door9" parent="Building/Floor10" unique_id=170268802 instance=ExtResource("4_hve3p")]
+position = Vector2(1196, 250)
+
+[node name="SurveylanceCamera" parent="Building/Floor10" unique_id=59072950 instance=ExtResource("3_vef74")]
+position = Vector2(304, 0)
+rotation_speed = 4.0
+max_rotation_angle = 30.0
+min_rotation_angle = -72.0
+observation_time = 2.0
+
+[node name="Guard" parent="Building/Floor10" unique_id=331243424 instance=ExtResource("5_mfdv2")]
+position = Vector2(40, 337)
+walk_speed = 250.0
+
+[node name="Floor11" type="Node2D" parent="Building" unique_id=545821391]
+position = Vector2(100, 565)
+script = ExtResource("3_j5wjh")
+floor_number = 11
+
+[node name="Door4" parent="Building/Floor11" unique_id=2000731124 instance=ExtResource("4_hve3p")]
+position = Vector2(199, 250)
+
+[node name="Door5" parent="Building/Floor11" unique_id=185848864 instance=ExtResource("4_hve3p")]
+position = Vector2(619, 250)
+
+[node name="Door6" parent="Building/Floor11" unique_id=1411484106 instance=ExtResource("4_hve3p")]
+position = Vector2(1065, 250)
+
+[node name="SurveylanceCamera" parent="Building/Floor11" unique_id=538717601 instance=ExtResource("3_vef74")]
+position = Vector2(416, 0)
+rotation_speed = 4.0
+max_rotation_angle = 72.0
+min_rotation_angle = -72.0
+observation_time = 2.0
+
+[node name="SurveylanceCamera2" parent="Building/Floor11" unique_id=1997188537 instance=ExtResource("3_vef74")]
+position = Vector2(888, 0)
+rotation_speed = 4.0
+max_rotation_angle = 72.0
+min_rotation_angle = -72.0
+observation_time = 2.0
+
+[node name="Guard" parent="Building/Floor11" unique_id=238840126 instance=ExtResource("5_mfdv2")]
+position = Vector2(45, 338)
+walk_speed = 275.0
+
+[node name="Guard2" parent="Building/Floor11" unique_id=1889110323 instance=ExtResource("5_mfdv2")]
+position = Vector2(1365, 338)
+start_inverted = true
+walk_speed = 275.0
+
+[node name="Floor12" type="Node2D" parent="Building" unique_id=1494591091]
+position = Vector2(100, 135)
+script = ExtResource("3_j5wjh")
+floor_number = 12
+
+[node name="Door4" parent="Building/Floor12" unique_id=630316036 instance=ExtResource("4_hve3p")]
+position = Vector2(747, 254)
+
+[node name="ExitDoor" parent="Building/Floor12" unique_id=480963299 instance=ExtResource("8_vef74")]
+position = Vector2(189, 251)
+
+[node name="SurveylanceCamera" parent="Building/Floor12" unique_id=1650708502 instance=ExtResource("3_vef74")]
+position = Vector2(467, 2)
+rotation_speed = 4.0
+max_rotation_angle = -72.0
+min_rotation_angle = 72.0
+observation_time = 1.5
+
+[node name="Player" parent="." unique_id=1614203785 instance=ExtResource("7_lc2xo")]
+position = Vector2(159, 5203)
+
+[node name="PlayerCamera" type="Camera2D" parent="Player" unique_id=1160245212]
+position = Vector2(754, -298)
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 5400
+
+[node name="PreviewCamera" type="Camera2D" parent="." unique_id=840465005]
+position = Vector2(960, 540)
+
+[node name="UILayer" type="CanvasLayer" parent="." unique_id=1015498222]
+
+[node name="GameHud" type="Control" parent="UILayer" unique_id=803447079]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_e8hgk")
+
+[node name="PanelContainer" type="PanelContainer" parent="UILayer/GameHud" unique_id=531813346]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UILayer/GameHud/PanelContainer" unique_id=194617008]
+custom_minimum_size = Vector2(900, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="UILayer/GameHud/PanelContainer/HBoxContainer" unique_id=433215912]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Red"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RedBar" type="ProgressBar" parent="UILayer/GameHud/PanelContainer/HBoxContainer" unique_id=157639174]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.0
+
+[node name="Label2" type="Label" parent="UILayer/GameHud/PanelContainer/HBoxContainer" unique_id=60512911]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Green"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GreenBar" type="ProgressBar" parent="UILayer/GameHud/PanelContainer/HBoxContainer" unique_id=1330999767]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.0
+
+[node name="Label3" type="Label" parent="UILayer/GameHud/PanelContainer/HBoxContainer" unique_id=740652885]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Blue"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BlueBar" type="ProgressBar" parent="UILayer/GameHud/PanelContainer/HBoxContainer" unique_id=647811944]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.0

@@ -14,6 +14,9 @@ func register_door(door: RoomDoor) -> void:
 func new_run() -> void:
 	current_run = GameRun.new(all_doors)
 
+func has_all_colors() -> bool:
+	return current_run.found_colors.values().all(func (c): return c == 1)
+
 func _on_color_part_found(color: Constants.MissingColor) -> void:
 	current_run.found_colors[color] += Constants.RECOVERY_AMOUNT
 	

@@ -1,0 +1,26 @@
+[gd_resource type="Theme" format=3 uid="uid://bnvsqmrvjv15m"]
+
+[ext_resource type="FontFile" uid="uid://p3i2jxivylj7" path="res://assets/font/Rhodyn Chalk.ttf" id="1_xgdp2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d80jv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0arac"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xgdp2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_611f8"]
+
+[resource]
+default_font = ExtResource("1_xgdp2")
+default_font_size = 24
+Message/base_type = &"Label"
+Message/constants/outline_size = 3
+Message/font_sizes/font_size = 24
+TitleScreenButton/base_type = &"Button"
+TitleScreenButton/colors/font_hover_color = Color(0.57754225, 0.48753875, 0.06932345, 1)
+TitleScreenButton/colors/font_pressed_color = Color(0.40168038, 0.33667177, 0.038776252, 1)
+TitleScreenButton/font_sizes/font_size = 56
+TitleScreenButton/styles/focus = SubResource("StyleBoxEmpty_d80jv")
+TitleScreenButton/styles/hover = SubResource("StyleBoxEmpty_0arac")
+TitleScreenButton/styles/normal = SubResource("StyleBoxEmpty_xgdp2")
+TitleScreenButton/styles/pressed = SubResource("StyleBoxEmpty_611f8")

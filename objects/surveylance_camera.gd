@@ -26,6 +26,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	ray_cast.force_raycast_update()
 	
 	if ray_cast.is_colliding() and ray_cast.get_collider() is Player:
-		print("You're spotted")
-	else:
-		print("object")
+		EventBus.captured.emit()

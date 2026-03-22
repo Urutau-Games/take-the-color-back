@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d3l8qst4sy2mc"]
 
-[ext_resource type="Script" uid="uid://b7ckk427cu5wy" path="res://guard.gd" id="1_opr0s"]
+[ext_resource type="Script" uid="uid://b7ckk427cu5wy" path="res://objects/guard.gd" id="1_opr0s"]
 [ext_resource type="Texture2D" uid="uid://dpmfgl0yn8m8l" path="res://assets/camera_view_area.png" id="2_ay375"]
 [ext_resource type="Texture2D" uid="uid://54bk0ij5xfh3" path="res://assets/guard/quadro0000.png" id="2_lrhy8"]
 [ext_resource type="Texture2D" uid="uid://c6syrx74khrgy" path="res://assets/guard/quadro0001.png" id="3_ay375"]
@@ -34,7 +34,7 @@ height = 178.0
 [node name="Guard" type="CharacterBody2D" unique_id=859823445]
 scale = Vector2(0.6, 0.6)
 collision_layer = 8
-collision_mask = 45
+collision_mask = 36
 script = ExtResource("1_opr0s")
 
 [node name="Pivot" type="Node2D" parent="." unique_id=261937932]
@@ -45,9 +45,11 @@ rotation = -1.5707964
 collision_layer = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pivot/Area2D" unique_id=1217048054]
+visible = false
 polygon = PackedVector2Array(0, 0, -113.66668, 322.66666, 112.999985, 324.3333)
 
 [node name="RayCast" type="RayCast2D" parent="Pivot/Area2D" unique_id=1077751407]
+collision_mask = 39
 
 [node name="CameraViewArea" type="Sprite2D" parent="Pivot" unique_id=1649453166]
 position = Vector2(154.33337, 0.3333397)
@@ -60,12 +62,13 @@ autoplay = "default"
 frame_progress = 0.6546143
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=939817582]
+visible = false
 position = Vector2(4, 1)
 shape = SubResource("CapsuleShape2D_h2yge")
 debug_color = Color(0.3529412, 0.3529412, 0.3529412, 0.8784314)
 
 [node name="MovementRaycast" type="RayCast2D" parent="." unique_id=293245]
 target_position = Vector2(75, 0)
-collision_mask = 44
+collision_mask = 36
 
 [connection signal="body_entered" from="Pivot/Area2D" to="." method="_on_area_2d_body_entered"]

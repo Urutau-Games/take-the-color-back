@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://rxln5hdf53x8"]
+
+[ext_resource type="Texture2D" uid="uid://uguroovljwld" path="res://assets/door.png" id="1_7sac5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ti4c3"]
+atlas = ExtResource("1_7sac5")
+region = Rect2(465, 0, 150, 300)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7sac5"]
+size = Vector2(150, 300)
+
+[node name="ExitDoor" type="Area2D" unique_id=1127227959]
+collision_layer = 16
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=878176909]
+texture = SubResource("AtlasTexture_ti4c3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1882887305]
+shape = SubResource("RectangleShape2D_7sac5")

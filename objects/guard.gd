@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var rotation_speed: float = 2
 @export var max_rotation_angle: float = 10
 @export var observation_time: float = .5
-
+@export var start_inverted: bool = false
 @export var walk_speed: float = 200
 
 @onready var pivot: Node2D = $Pivot
@@ -14,15 +14,21 @@ extends CharacterBody2D
 var _direction: Vector2 = Vector2.RIGHT
 
 func _ready() -> void:
+	if start_inverted:
+		_invert()
+	
 	_start_scan()
+
+func _invert() -> void:
+	_direction *= -1
+	scale.x *= -1
 
 func _process(_delta: float) -> void:
 	
 	velocity = _direction * walk_speed
 	
 	if movement_raycast.is_colliding():
-		_direction *= -1
-		scale.x *= -1
+		_invert()
 	
 	move_and_slide()
 
@@ -38,7 +44,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	ray_cast.force_raycast_update()
 	
 	if ray_cast.is_colliding() and ray_cast.get_collider() is Player:
-		#tween.pause()
-		print("You're spotted")
-	else:
-		print("object")
+		EventBus.captured.emit()
