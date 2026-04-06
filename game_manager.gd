@@ -1,18 +1,15 @@
 extends Node
 
 var game_shader: ShaderMaterial = preload("res://assets/greyscale_shader_material.tres")
-var all_doors: Array[RoomDoor]
 
 var current_run: GameRun
 
 func _ready() -> void:
 	EventBus.color_part_found.connect(_on_color_part_found)
-	EventBus.game_started.connect(_on_captured)
-
-func register_door(door: RoomDoor) -> void:
-	all_doors.push_back(door)
 
 func new_run() -> void:
+	var all_doors: Array[RoomDoor] = []
+	get_tree().call_group('doors', 'register_self', all_doors)
 	current_run = GameRun.new(all_doors)
 
 func has_all_colors() -> bool:
@@ -25,9 +22,6 @@ func _on_color_part_found(color: Constants.MissingColor) -> void:
 	
 	if current_run.found_colors[color] == Constants.MAX_COLOR_VALUE:
 		game_shader.set_shader_parameter(Constants.color_to_shader_property[color], true)
-
-func _on_captured() -> void:
-	all_doors = []
 
 class GameRun: 
 	var found_colors: Dictionary[Constants.MissingColor, float]

@@ -13,7 +13,9 @@ var checked: bool = false
 
 func _ready() -> void:
 	door_sprite.texture = unknown_texture
-	GameManager.register_door(self)
+
+func register_self(container: Array[RoomDoor]) -> void:
+	container.push_back(self)
 
 func set_robbed() -> void:
 	holding_color = Constants.MissingColor.None
