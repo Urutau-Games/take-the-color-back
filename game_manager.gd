@@ -7,6 +7,7 @@ var current_run: GameRun
 
 func _ready() -> void:
 	EventBus.color_part_found.connect(_on_color_part_found)
+	EventBus.game_started.connect(_on_captured)
 
 func register_door(door: RoomDoor) -> void:
 	all_doors.push_back(door)
@@ -24,6 +25,9 @@ func _on_color_part_found(color: Constants.MissingColor) -> void:
 	
 	if current_run.found_colors[color] == Constants.MAX_COLOR_VALUE:
 		game_shader.set_shader_parameter(Constants.color_to_shader_property[color], true)
+
+func _on_captured() -> void:
+	all_doors = []
 
 class GameRun: 
 	var found_colors: Dictionary[Constants.MissingColor, float]
