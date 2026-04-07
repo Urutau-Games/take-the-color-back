@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://p3i2jxivylj7"
-path="res://.godot/imported/Rhodyn Chalk.ttf-5081215b07da20803b64560d2aa9fc49.fontdata"
+uid="uid://d2k6mri8m1qjr"
+path="res://.godot/imported/Chalk.otf-567b5918485dd567d3346d02c1b8a302.fontdata"
 
 [deps]
 
-source_file="res://assets/font/Rhodyn Chalk.ttf"
-dest_files=["res://.godot/imported/Rhodyn Chalk.ttf-5081215b07da20803b64560d2aa9fc49.fontdata"]
+source_file="res://assets/font/Chalk.otf"
+dest_files=["res://.godot/imported/Chalk.otf-567b5918485dd567d3346d02c1b8a302.fontdata"]
 
 [params]
 

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*uid://dyv577vntmitm"
 EventBus="*uid://dnmenoc4hew0b"
+Talo="*uid://bpmdn8oc34pg7"
 
 [display]
 
@@ -28,6 +29,10 @@ window/size/mode=3
 window/size/window_width_override=1440
 window/size/window_height_override=810
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/talo/plugin.cfg")
 
 [global_group]
 

@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d3l8qst4sy2mc" path="res://objects/guard.tscn" id="5_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://bh7t8eg8b8tfb" path="res://objects/player.tscn" id="7_lc2xo"]
 [ext_resource type="PackedScene" uid="uid://rxln5hdf53x8" path="res://objects/exit_door.tscn" id="8_vef74"]
-[ext_resource type="Script" uid="uid://dttobchk5743j" path="res://game_hud.gd" id="10_e8hgk"]
+[ext_resource type="PackedScene" uid="uid://cr5glarbmmywu" path="res://objects/game_hud.tscn" id="10_2m0qy"]
 
 [node name="Game" type="Node2D" unique_id=1530211558]
 material = ExtResource("1_eow3j")
@@ -334,72 +334,4 @@ position = Vector2(960, 540)
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1015498222]
 
-[node name="GameHud" type="Control" parent="UILayer" unique_id=803447079]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("10_e8hgk")
-
-[node name="PanelContainer" type="PanelContainer" parent="UILayer/GameHud" unique_id=531813346]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UILayer/GameHud/PanelContainer" unique_id=194617008]
-custom_minimum_size = Vector2(900, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 50
-
-[node name="Label" type="Label" parent="UILayer/GameHud/PanelContainer/HBoxContainer" unique_id=433215912]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "Red"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="RedBar" type="ProgressBar" parent="UILayer/GameHud/PanelContainer/HBoxContainer" unique_id=157639174]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-max_value = 1.0
-step = 0.0
-
-[node name="Label2" type="Label" parent="UILayer/GameHud/PanelContainer/HBoxContainer" unique_id=60512911]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "Green"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="GreenBar" type="ProgressBar" parent="UILayer/GameHud/PanelContainer/HBoxContainer" unique_id=1330999767]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-max_value = 1.0
-step = 0.0
-
-[node name="Label3" type="Label" parent="UILayer/GameHud/PanelContainer/HBoxContainer" unique_id=740652885]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "Blue"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="BlueBar" type="ProgressBar" parent="UILayer/GameHud/PanelContainer/HBoxContainer" unique_id=647811944]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-max_value = 1.0
-step = 0.0
+[node name="GameHud" parent="UILayer" unique_id=537239554 instance=ExtResource("10_2m0qy")]

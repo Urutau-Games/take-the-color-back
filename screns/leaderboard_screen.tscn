@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://dx36bvcgjn1v1"]
+
+[ext_resource type="Texture2D" uid="uid://cgiuy28yym0st" path="res://assets/title.png" id="1_3n3yd"]
+[ext_resource type="Script" uid="uid://d33qw3pi8332w" path="res://screns/leaderboard_screen.gd" id="1_s7peq"]
+[ext_resource type="PackedScene" uid="uid://qku2fm53npb3" path="res://screns/leaderboard_entry.tscn" id="3_f5bqa"]
+
+[node name="LeaderboardScreen" type="Control" unique_id=496401037]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s7peq")
+leaderboard_entry = ExtResource("3_f5bqa")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1628347947]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_3n3yd")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=1321721875]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6
+anchor_top = 0.36
+anchor_right = 0.95
+anchor_bottom = 0.4
+theme_type_variation = &"LeaderboardPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1526656182]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Board" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=411419880]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Board" unique_id=236579441]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"HeaderLabel"
+text = "Top 10"
+horizontal_alignment = 1
+
+[node name="Loading" type="Label" parent="Panel/MarginContainer/Board" unique_id=345900579]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"HeaderLabel"
+text = "Loading..."
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1334639668]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=528869206]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 50
+
+[node name="Menu" type="Button" parent="MarginContainer/HBoxContainer" unique_id=13268965]
+layout_mode = 2
+theme_type_variation = &"TitleScreenButton"
+text = "Menu"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Menu" to="." method="_on_menu_pressed"]

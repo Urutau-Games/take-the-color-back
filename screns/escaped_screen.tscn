@@ -28,23 +28,68 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_bottom = 75
+theme_override_constants/margin_bottom = 50
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=223023228]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=877136858]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=146104064]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"HeaderLabel"
+text = "Your Time"
+
+[node name="Time" type="Label" parent="MarginContainer/VBoxContainer" unique_id=727849220]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"ClockLabel"
+text = "00:00"
+
+[node name="SubmitRegion" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=761874850]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="PlayerName" type="LineEdit" parent="MarginContainer/VBoxContainer/SubmitRegion" unique_id=1910387843]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+placeholder_text = "Your name"
+
+[node name="SubmitButton" type="Button" parent="MarginContainer/VBoxContainer/SubmitRegion" unique_id=429529212]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Submit"
+flat = true
+
+[node name="MessageArea" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1701381684]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"ClockLabel"
+text = "Sending..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=223023228]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_constants/separation = 50
 
-[node name="Play" type="Button" parent="MarginContainer/HBoxContainer" unique_id=575939461]
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=575939461]
 layout_mode = 2
 theme_type_variation = &"TitleScreenButton"
 text = "Try Again"
 
-[node name="Menu" type="Button" parent="MarginContainer/HBoxContainer" unique_id=142353765]
+[node name="Menu" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=142353765]
 layout_mode = 2
 theme_type_variation = &"TitleScreenButton"
 text = "Menu"
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SubmitRegion/SubmitButton" to="." method="_on_submit_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Menu" to="." method="_on_menu_pressed"]

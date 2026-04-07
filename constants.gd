@@ -21,3 +21,6 @@ const FLOORS_PER_GROUP: int = 4
 const PARTS_PER_COLOR: float = 4
 
 const RECOVERY_AMOUNT: float = 0.25
+
+const CLOCK_TEMPLATE = "%02d:%02d"
+const LEADERBOARD_NAME: String = "time-leaderboard"

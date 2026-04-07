@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cacuc1diqbiq"]
+
+[ext_resource type="Script" uid="uid://dwrmkkimc64dm" path="res://objects/clock.gd" id="1_cdt0o"]
+
+[node name="Clock" type="Control" unique_id=1196209539]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_cdt0o")
+
+[node name="Time" type="Label" parent="." unique_id=137718443]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 71.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_type_variation = &"ClockLabel"
+text = "00:00"

@@ -6,6 +6,10 @@ var current_run: GameRun
 
 func _ready() -> void:
 	EventBus.color_part_found.connect(_on_color_part_found)
+	
+	EventBus.captured.connect(_on_captured)
+	EventBus.escaped.connect(_on_escaped)
+	EventBus.finished.connect(_on_finished)
 
 func new_run() -> void:
 	var all_doors: Array[RoomDoor] = []
@@ -15,6 +19,9 @@ func new_run() -> void:
 func has_all_colors() -> bool:
 	return current_run.found_colors.values().all(func (c): return c == 1)
 
+func is_running() -> bool:
+	return current_run and current_run.is_active
+
 func _on_color_part_found(color: Constants.MissingColor) -> void:
 	current_run.found_colors[color] += Constants.RECOVERY_AMOUNT
 	
@@ -23,8 +30,27 @@ func _on_color_part_found(color: Constants.MissingColor) -> void:
 	if current_run.found_colors[color] == Constants.MAX_COLOR_VALUE:
 		game_shader.set_shader_parameter(Constants.color_to_shader_property[color], true)
 
+func _on_captured() -> void:
+	_deactivate_run_if_active()
+
+func _on_escaped() -> void:
+	_deactivate_run_if_active()
+	
+func _on_finished() -> void:
+	_deactivate_run_if_active()
+
+func _deactivate_run_if_active() -> void:
+	if is_running():
+		current_run.is_active = false
+
+func _process(delta: float) -> void:
+	if is_running():
+		current_run.run_time += delta
+
 class GameRun: 
 	var found_colors: Dictionary[Constants.MissingColor, float]
+	var run_time: float
+	var is_active: bool
 	
 	func _init(available_doors: Array[RoomDoor]) -> void:
 		found_colors = {
@@ -33,8 +59,12 @@ class GameRun:
 			Constants.MissingColor.Blue: 0
 		}
 		
+		run_time = 0
+		
 		_reset_doors(available_doors)
 		_roll_doors(available_doors)
+		
+		is_active = true
 
 	func _reset_doors(available_doors: Array[RoomDoor]) -> void:
 		for door in available_doors:

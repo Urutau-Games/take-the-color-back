@@ -42,6 +42,12 @@ layout_mode = 2
 theme_type_variation = &"TitleScreenButton"
 text = "Play"
 
+[node name="LeaderBoard" type="Button" parent="VBoxContainer" unique_id=88538898]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"TitleScreenButton"
+text = "Leaderboard"
+
 [node name="Exit" type="Button" parent="VBoxContainer" unique_id=642165184]
 unique_name_in_owner = true
 layout_mode = 2
@@ -49,4 +55,5 @@ theme_type_variation = &"TitleScreenButton"
 text = "Exit"
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/LeaderBoard" to="." method="_on_leader_board_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

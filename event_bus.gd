@@ -17,3 +17,6 @@ signal escaped()
 
 @warning_ignore("unused_signal")
 signal finished()
+
+@warning_ignore("unused_signal")
+signal leaderboard_accessed()

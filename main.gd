@@ -4,6 +4,7 @@ extends SubViewportContainer
 @export var game_screen: PackedScene
 @export var game_over_screen: PackedScene
 @export var win_screen: PackedScene
+@export var leaderboard_screen: PackedScene
 
 @onready var container: SubViewport = $Container
 
@@ -12,6 +13,7 @@ func _ready() -> void:
 	EventBus.captured.connect(_on_captured)
 	EventBus.finished.connect(_on_finished)
 	EventBus.escaped.connect(_on_escaped)
+	EventBus.leaderboard_accessed.connect(_on_leaderboard_accessed)
 	
 	container.add_child(title_screen.instantiate())
 
@@ -29,7 +31,11 @@ func _on_finished() -> void:
 	container.get_child(0).queue_free()
 	container.add_child.call_deferred(title_screen.instantiate())
 	
-	
+
+func _on_leaderboard_accessed() -> void:
+	container.get_child(0).queue_free()
+	container.add_child.call_deferred(leaderboard_screen.instantiate())
+
 func _on_escaped() -> void:
 	container.get_child(0).queue_free()
 	container.add_child.call_deferred(win_screen.instantiate())

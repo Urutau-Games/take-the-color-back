@@ -1,6 +1,16 @@
 [gd_resource type="Theme" format=3 uid="uid://bnvsqmrvjv15m"]
 
-[ext_resource type="FontFile" uid="uid://p3i2jxivylj7" path="res://assets/font/Rhodyn Chalk.ttf" id="1_xgdp2"]
+[ext_resource type="FontFile" uid="uid://d2k6mri8m1qjr" path="res://assets/font/Chalk.otf" id="1_xgdp2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pefyd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_upuy7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2jsj3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2est8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ojh6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d80jv"]
 
@@ -13,6 +23,20 @@
 [resource]
 default_font = ExtResource("1_xgdp2")
 default_font_size = 24
+ActionButton/base_type = &"Button"
+ActionButton/colors/font_hover_color = Color(0.5764706, 0.4862745, 0.07058824, 1)
+ActionButton/colors/font_pressed_color = Color(0.4, 0.3372549, 0.039215688, 1)
+ActionButton/font_sizes/font_size = 32
+ActionButton/styles/focus = SubResource("StyleBoxEmpty_pefyd")
+ActionButton/styles/hover = SubResource("StyleBoxEmpty_upuy7")
+ActionButton/styles/normal = SubResource("StyleBoxEmpty_2jsj3")
+ActionButton/styles/pressed = SubResource("StyleBoxEmpty_2est8")
+ClockLabel/base_type = &"Label"
+ClockLabel/font_sizes/font_size = 32
+HeaderLabel/base_type = &"Label"
+HeaderLabel/font_sizes/font_size = 48
+LeaderboardPanel/base_type = &"PanelContainer"
+LeaderboardPanel/styles/panel = SubResource("StyleBoxEmpty_7ojh6")
 Message/base_type = &"Label"
 Message/constants/outline_size = 3
 Message/font_sizes/font_size = 24

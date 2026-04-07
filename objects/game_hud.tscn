@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://cr5glarbmmywu"]
+
+[ext_resource type="Script" uid="uid://dttobchk5743j" path="res://objects/game_hud.gd" id="1_cmpbo"]
+[ext_resource type="PackedScene" uid="uid://cacuc1diqbiq" path="res://objects/clock.tscn" id="2_sdxas"]
+
+[node name="GameHud" type="Control" unique_id=537239554]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cmpbo")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=700657719]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=169704705]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer" unique_id=729014418]
+layout_mode = 2
+
+[node name="Clock" parent="PanelContainer/MarginContainer/HBoxContainer2" unique_id=1196209539 instance=ExtResource("2_sdxas")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer2" unique_id=572318234]
+custom_minimum_size = Vector2(900, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer2/HBoxContainer" unique_id=964914422]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Red"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RedBar" type="ProgressBar" parent="PanelContainer/MarginContainer/HBoxContainer2/HBoxContainer" unique_id=344451951]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.0
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer2/HBoxContainer" unique_id=327034499]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Green"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GreenBar" type="ProgressBar" parent="PanelContainer/MarginContainer/HBoxContainer2/HBoxContainer" unique_id=269800384]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.0
+
+[node name="Label3" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer2/HBoxContainer" unique_id=469978930]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Blue"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BlueBar" type="ProgressBar" parent="PanelContainer/MarginContainer/HBoxContainer2/HBoxContainer" unique_id=205605355]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.0

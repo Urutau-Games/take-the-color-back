@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dsji62dvopw1m" path="res://screns/title_screen.tscn" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://c3r0wjoprn0e2" path="res://screns/game_over_screen.tscn" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://sknhm8iipm3" path="res://screns/escaped_screen.tscn" id="6_272bh"]
+[ext_resource type="PackedScene" uid="uid://dx36bvcgjn1v1" path="res://screns/leaderboard_screen.tscn" id="7_272bh"]
 
 [node name="Main" type="SubViewportContainer" unique_id=929138640]
 material = ExtResource("1_272bh")
@@ -19,6 +20,7 @@ title_screen = ExtResource("3_1bvp3")
 game_screen = ExtResource("2_0xm2m")
 game_over_screen = ExtResource("5_7mycd")
 win_screen = ExtResource("6_272bh")
+leaderboard_screen = ExtResource("7_272bh")
 
 [node name="Container" type="SubViewport" parent="." unique_id=1544538015]
 handle_input_locally = false
