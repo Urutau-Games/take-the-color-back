@@ -72,3 +72,4 @@ target_position = Vector2(75, 0)
 collision_mask = 36
 
 [connection signal="body_entered" from="Pivot/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Pivot/Area2D" to="." method="_on_area_2d_body_exited"]

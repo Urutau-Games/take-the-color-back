@@ -12,6 +12,7 @@ extends CharacterBody2D
 @onready var movement_raycast: RayCast2D = $MovementRaycast
 
 var _direction: Vector2 = Vector2.RIGHT
+var _target: Player = null
 
 func _ready() -> void:
 	if start_inverted:
@@ -24,11 +25,17 @@ func _invert() -> void:
 	scale.x *= -1
 
 func _process(_delta: float) -> void:
-	
 	velocity = _direction * walk_speed
 	
 	if movement_raycast.is_colliding():
 		_invert()
+	
+	if _target:
+		ray_cast.target_position = (ray_cast.to_local(_target.global_position) - ray_cast.position) * ray_cast.transform
+		ray_cast.force_raycast_update()
+		
+		if ray_cast.is_colliding() and ray_cast.get_collider() is Player:
+			EventBus.captured.emit()
 	
 	move_and_slide()
 
@@ -40,8 +47,10 @@ func _start_scan() -> void:
 	tween.tween_interval(observation_time)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	ray_cast.target_position = (ray_cast.to_local(body.global_position) - ray_cast.position) * ray_cast.transform
-	ray_cast.force_raycast_update()
-	
-	if ray_cast.is_colliding() and ray_cast.get_collider() is Player:
-		EventBus.captured.emit()
+	if body is Player:
+		_target = body
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body is Player:
+		_target = null
