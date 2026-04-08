@@ -20,3 +20,6 @@ signal finished()
 
 @warning_ignore("unused_signal")
 signal leaderboard_accessed()
+
+@warning_ignore("unused_signal")
+signal credits_accessed()

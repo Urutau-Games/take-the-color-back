@@ -21,20 +21,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_8hbp8")
+metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=451130407]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -378.0
-offset_top = 6.0
-offset_right = -326.0
-offset_bottom = 74.0
-grow_horizontal = 0
-grow_vertical = 2
+layout_mode = 0
+offset_left = 1345.0
+offset_top = 465.0
+offset_right = 1663.0
+offset_bottom = 794.0
 theme_override_constants/separation = 30
 
 [node name="Play" type="Button" parent="VBoxContainer" unique_id=1989510884]
@@ -49,6 +43,12 @@ layout_mode = 2
 theme_type_variation = &"TitleScreenButton"
 text = "Leaderboard"
 
+[node name="Credits" type="Button" parent="VBoxContainer" unique_id=870565601]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"TitleScreenButton"
+text = "Credits"
+
 [node name="MusicVolumeController" parent="VBoxContainer" unique_id=301646044 instance=ExtResource("3_l5qql")]
 layout_mode = 2
 
@@ -60,4 +60,5 @@ text = "Exit"
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/LeaderBoard" to="." method="_on_leader_board_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

@@ -5,6 +5,7 @@ extends SubViewportContainer
 @export var game_over_screen: PackedScene
 @export var win_screen: PackedScene
 @export var leaderboard_screen: PackedScene
+@export var credits_screen: PackedScene
 
 
 @onready var game_music_player: AudioStreamPlayer = $GameMusicPlayer
@@ -19,6 +20,7 @@ func _ready() -> void:
 	EventBus.finished.connect(_on_finished)
 	EventBus.escaped.connect(_on_escaped)
 	EventBus.leaderboard_accessed.connect(_on_leaderboard_accessed)
+	EventBus.credits_accessed.connect(_on_credits_accessed)
 	
 	container.add_child(title_screen.instantiate())
 
@@ -43,6 +45,11 @@ func _on_finished() -> void:
 func _on_leaderboard_accessed() -> void:
 	container.get_child(0).queue_free()
 	container.add_child.call_deferred(leaderboard_screen.instantiate())
+	
+	
+func _on_credits_accessed() -> void:
+	container.get_child(0).queue_free()
+	container.add_child.call_deferred(credits_screen.instantiate())
 
 
 func _on_escaped() -> void:
@@ -51,10 +58,12 @@ func _on_escaped() -> void:
 
 
 func _play_menu() -> void:
-	game_music_player.stop()
-	menu_music_player.play()
+	if not menu_music_player.playing:
+		game_music_player.stop()
+		menu_music_player.play()
 	
 
 func _play_game() -> void:
-	menu_music_player.stop()
-	game_music_player.play()
+	if not game_music_player.playing:
+		menu_music_player.stop()
+		game_music_player.play()

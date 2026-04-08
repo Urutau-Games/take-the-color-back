@@ -15,3 +15,7 @@ func _on_play_pressed() -> void:
 
 func _on_leader_board_pressed() -> void:
 	EventBus.leaderboard_accessed.emit()
+
+
+func _on_credits_pressed() -> void:
+	EventBus.credits_accessed.emit()
