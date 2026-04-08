@@ -6,9 +6,14 @@ extends SubViewportContainer
 @export var win_screen: PackedScene
 @export var leaderboard_screen: PackedScene
 
+
+@onready var game_music_player: AudioStreamPlayer = $GameMusicPlayer
+@onready var menu_music_player: AudioStreamPlayer = $MenuMusicPlayer
 @onready var container: SubViewport = $Container
 
 func _ready() -> void:
+	_play_menu()
+	
 	EventBus.game_started.connect(_on_game_started)
 	EventBus.captured.connect(_on_captured)
 	EventBus.finished.connect(_on_finished)
@@ -19,6 +24,7 @@ func _ready() -> void:
 
 
 func _on_game_started() -> void:
+	_play_game()
 	container.get_child(0).queue_free()
 	container.add_child.call_deferred(game_screen.instantiate())
 
@@ -27,7 +33,9 @@ func _on_captured() -> void:
 	container.get_child(0).queue_free()
 	container.add_child.call_deferred(game_over_screen.instantiate())
 
+
 func _on_finished() -> void:
+	_play_menu()
 	container.get_child(0).queue_free()
 	container.add_child.call_deferred(title_screen.instantiate())
 	
@@ -36,6 +44,17 @@ func _on_leaderboard_accessed() -> void:
 	container.get_child(0).queue_free()
 	container.add_child.call_deferred(leaderboard_screen.instantiate())
 
+
 func _on_escaped() -> void:
 	container.get_child(0).queue_free()
 	container.add_child.call_deferred(win_screen.instantiate())
+
+
+func _play_menu() -> void:
+	game_music_player.stop()
+	menu_music_player.play()
+	
+
+func _play_game() -> void:
+	menu_music_player.stop()
+	game_music_player.play()

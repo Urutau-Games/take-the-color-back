@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c08ntl6k3w4ii" path="res://screns/title_screen.gd" id="1_1taxv"]
 [ext_resource type="Texture2D" uid="uid://cgiuy28yym0st" path="res://assets/title.png" id="1_8hbp8"]
+[ext_resource type="PackedScene" uid="uid://bqk8qeap0bn3p" path="res://objects/music_volume_controller.tscn" id="3_l5qql"]
 
 [node name="TitleScreen" type="Control" unique_id=2093503812]
 layout_mode = 3
@@ -47,6 +48,9 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"TitleScreenButton"
 text = "Leaderboard"
+
+[node name="MusicVolumeController" parent="VBoxContainer" unique_id=301646044 instance=ExtResource("3_l5qql")]
+layout_mode = 2
 
 [node name="Exit" type="Button" parent="VBoxContainer" unique_id=642165184]
 unique_name_in_owner = true

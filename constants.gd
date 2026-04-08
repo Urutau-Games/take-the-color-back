@@ -24,3 +24,8 @@ const RECOVERY_AMOUNT: float = 0.25
 
 const CLOCK_TEMPLATE = "%02d:%02d"
 const LEADERBOARD_NAME: String = "time-leaderboard"
+
+const MUSIC_VOLUME_KEY: String = "Music"
+const DEFAULT_AUDIO_SETTINGS: Dictionary[String, float] = {
+	Constants.MUSIC_VOLUME_KEY: 1
+}

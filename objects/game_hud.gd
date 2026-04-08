@@ -11,3 +11,7 @@ func _on_amounts_updated(new_amounts: Dictionary[Constants.MissingColor, float])
 	red_bar.value = new_amounts[Constants.MissingColor.Red]
 	green_bar.value = new_amounts[Constants.MissingColor.Green]
 	blue_bar.value = new_amounts[Constants.MissingColor.Blue]
+
+
+func _on_menu_pressed() -> void:
+	EventBus.finished.emit()

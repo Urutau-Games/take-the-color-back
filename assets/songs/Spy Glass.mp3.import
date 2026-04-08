@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://liu1tufbf8bh"
+path="res://.godot/imported/Spy Glass.mp3-61c99026a120b370f374bdaa4250eecf.mp3str"
+
+[deps]
+
+source_file="res://assets/songs/Spy Glass.mp3"
+dest_files=["res://.godot/imported/Spy Glass.mp3-61c99026a120b370f374bdaa4250eecf.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://c3r0wjoprn0e2" path="res://screns/game_over_screen.tscn" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://sknhm8iipm3" path="res://screns/escaped_screen.tscn" id="6_272bh"]
 [ext_resource type="PackedScene" uid="uid://dx36bvcgjn1v1" path="res://screns/leaderboard_screen.tscn" id="7_272bh"]
+[ext_resource type="AudioStream" uid="uid://dqt0xp4hhrmso" path="res://assets/songs/Spy Groove.mp3" id="8_kek77"]
+[ext_resource type="AudioStream" uid="uid://liu1tufbf8bh" path="res://assets/songs/Spy Glass.mp3" id="9_4c57u"]
 
 [node name="Main" type="SubViewportContainer" unique_id=929138640]
 material = ExtResource("1_272bh")
@@ -21,6 +23,14 @@ game_screen = ExtResource("2_0xm2m")
 game_over_screen = ExtResource("5_7mycd")
 win_screen = ExtResource("6_272bh")
 leaderboard_screen = ExtResource("7_272bh")
+
+[node name="GameMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1002978303]
+stream = ExtResource("8_kek77")
+bus = &"GameMusic"
+
+[node name="MenuMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=360877829]
+stream = ExtResource("9_4c57u")
+bus = &"MenusMusic"
 
 [node name="Container" type="SubViewport" parent="." unique_id=1544538015]
 handle_input_locally = false
