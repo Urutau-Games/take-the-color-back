@@ -3,6 +3,9 @@ on:
   push:
     branches:
     - main
+    paths-ignore:
+    - README.md
+    - raw_assets/** 
 
 env:
   GODOT_VERSION: 4.6.0
