@@ -41,7 +41,7 @@ jobs:
         run: mkdir -p dist/${{ matrix.target }}
 
       - name: Add Talo Settings
-        run: echo "${{ env.TALO_SETTINGS }}"  > addons/talo/settings.cfg
+        run: echo "$TALO_SETTINGS"  > addons/talo/settings.cfg
 
       - name: Export ${{ matrix.target }} release
         run: godot --headless --export-release ${{ matrix.target }} ./dist/${{ matrix.target }}/${{ matrix.bin-name }}
